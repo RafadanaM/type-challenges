@@ -22,8 +22,9 @@
 
 /* _____________ Your Code Here _____________ */
 
-type First<T extends any[]> = any
-
+type First<T extends any[]> = T extends [infer Head, ...infer _Tail]
+  ? Head
+  : never
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
 
